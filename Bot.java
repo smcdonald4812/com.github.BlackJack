@@ -1,3 +1,5 @@
+//this class is for instanciating bot players.
+
 import java.util.*;
 
 public Bot extends Player implements Bots{
