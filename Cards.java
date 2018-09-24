@@ -1,3 +1,5 @@
+//To be used with concrete Card class, which has not been made yet.
+
 interface Cards {
 	void SetValue();
 	int GetValue();
