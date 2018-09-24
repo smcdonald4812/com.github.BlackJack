@@ -1,3 +1,5 @@
+//To be used with the Table class, which has not been created yet.
+
 interface Games {
 	void setDealer();
 	boolean isContainingDealer();
