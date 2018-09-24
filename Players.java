@@ -1,3 +1,5 @@
+//Players is used with the Player and Bot classes.
+
 interface Players {
 	void setBet();
 	int getBet();
