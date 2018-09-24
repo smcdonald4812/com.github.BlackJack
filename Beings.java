@@ -1,3 +1,5 @@
+//this interface is used by Player, Dealer, and Bot
+
 interface Beings {
 	boolean isDealer();
 	void setName();
