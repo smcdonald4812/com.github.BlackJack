@@ -1,3 +1,5 @@
+//The human Player concrete class. It uses the Beings and Players interfaces.
+
 import java.util.*;
 
 public Player implements Beings, Players{
