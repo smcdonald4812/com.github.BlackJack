@@ -1,3 +1,5 @@
+//For Dealer instantiation, uses Beaings, Dealers, and Bots
+
 import java.util.*;
 
 public Dealer implements Beings, Dealers, Bots {
