@@ -1,6 +1,6 @@
 /*
 *	Created by Steven McDonald
-*	Version 0.0.1
+*	Version 0.0.3
 */
 package BlackJack;
 import java.util.*;
