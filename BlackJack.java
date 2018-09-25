@@ -7,13 +7,14 @@ import java.util.*;
 
 public class BlackJack {
 	Scanner s = new Scanner(System.in);
-	List<Deck> deck = new ArrayList<Deck>();
-	Random r = new Random();
 	
 	public static void main(String... args) {
-		String answer, name;
-		Player player;
+		private boolean flag;
+		private String answer, name;
+		private Player player;
+		private Deck deck = new Deck();
 		
+		//Asking if the player wants to play as well as what their display name will be.
 		System.out.println("Would you like to play? Select Y/N.");
 		answer = answerLoop(answer);
 		quit(answer);
@@ -24,10 +25,13 @@ public class BlackJack {
 		if(name.isEmpty()) player = new Player();
 		else player = new Player(name);
 		
-		/*Need to make Table class implementing Games, Card class implementing Cards, 
-		* Deck class implementing Decks and creating a List<Card> in the constructor for use in game.
-		* The list will be randomized every time it needs to be reshuffled with Collections.shuffle(List<Card>); 
-		*/
+		private Table table = new Table();
+		
+		while(flag) {
+			/*
+			* The list will be randomized every time it needs to be reshuffled with Collections.shuffle(List<Card>); 
+			*/
+		}
 	}
 	
 	private String answerLoop(String answer) {

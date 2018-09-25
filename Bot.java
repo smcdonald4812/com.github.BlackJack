@@ -1,5 +1,3 @@
-//this class is for instanciating bot players.
-
 import java.util.*;
 
 public Bot extends Player implements Bots{
@@ -9,10 +7,11 @@ public Bot extends Player implements Bots{
 	private String name;
 	private final String id;
 	
-	public Bot {
+	public Bot() {
 		super();
-		name = "Bot " + count++;
-		stopValue = 17;
+		this.name = "Bot " + count++;
+		this.stopValue = 17;
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	public boolean isOverStopValue() {

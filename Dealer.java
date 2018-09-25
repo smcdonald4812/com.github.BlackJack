@@ -1,21 +1,19 @@
-//For Dealer instantiation, uses Beaings, Dealers, and Bots
-
 import java.util.*;
 
 public Dealer implements Beings, Dealers, Bots {
-	private boolean turn, busted, startBlackJack;
+	private boolean turn, busted, startBlackJack, cardShowing;
 	private int total, stopValue;
 	private String name;
 	private final String id;
 	
 	public Dealer() {
-		name = "Dealer";
-		total = 0;
-		turn = false;
-		busted = false;
-		startBlackJack = false;
-		stopValue = 16;
-		id = UUID.randomUUID().toString();
+		this.name = "Dealer";
+		this.total = 0;
+		this.turn = false;
+		this.busted = false;
+		this.startBlackJack = false;
+		this.stopValue = 16;
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	public boolean isDealer() {
@@ -61,5 +59,11 @@ public Dealer implements Beings, Dealers, Bots {
 	}
 	public int getStopValue() {
 		return this.stopValue;
+	}
+	public void setCardShowing(cardShowing) {
+		this.cardShowing = cardShowing;
+	}
+	boolean isCardShowing() {
+		return this.cardShowing;
 	}
 }

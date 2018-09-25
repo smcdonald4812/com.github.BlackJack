@@ -1,5 +1,3 @@
-//The human Player concrete class. It uses the Beings and Players interfaces.
-
 import java.util.*;
 
 public Player implements Beings, Players{
@@ -9,15 +7,15 @@ public Player implements Beings, Players{
 	private final String id;
 	
 	public Player() {
-		name = "Anon Y. Mous";
-		bankRoll = 10_000;
-		total = 0;
-		bet = 0;
-		doubled = false;
-		insured = false;
-		turn = false;
-		busted = false;
-		id = UUID.randomUUID().toString();
+		this.name = "Anon Y. Mous";
+		this.bankRoll = 10_000;
+		this.total = 0;
+		this.bet = 0;
+		this.doubled = false;
+		this.insured = false;
+		this.turn = false;
+		this.busted = false;
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	public Player(String name) {
