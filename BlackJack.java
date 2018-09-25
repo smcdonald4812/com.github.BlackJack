@@ -1,6 +1,6 @@
 /*
 *	Created by Steven McDonald
-*	Version 0.0.1
+*	Version 0.0.2
 */
 
 import java.util.*;
@@ -29,6 +29,7 @@ public class BlackJack {
 		
 		while(flag) {
 			/*
+			* Need to add main game logic here...
 			* The list will be randomized every time it needs to be reshuffled with Collections.shuffle(List<Card>); 
 			*/
 		}
