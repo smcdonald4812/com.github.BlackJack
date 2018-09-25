@@ -1,18 +1,19 @@
+package BlackJack;
+
 interface Games {
-	void setDealer();
-	void setContainingDealer();
+	void setDealer(Dealer dealer);
+	void setContainingDealer(boolean containingDealer);
 	boolean isContainingDealer();
-	void setTableFull();
+	void setTableFull(boolean tableFull);
 	boolean isTableFull();
-	void setTableId();
 	String getTableId();
-	void setStartRound();
+	void setStartRound(boolean startRound);
 	boolean isStartRound();
-	void setEndRound();
+	void setEndRound(boolean endRound);
 	boolean isEndRound();
-	void setSeatOne();
-	void setSeatTwo();
-	void setSeatThree();
-	void setSeatFour();
-	void setSeatFive();
+	void setSeatOne(Seat one);
+	void setSeatTwo(Seat two);
+	void setSeatThree(Seat three);
+	void setSeatFour(Seat four);
+	void setSeatFive(Seat five);
 }

@@ -1,4 +1,7 @@
-public Table implements Games{
+package BlackJack;
+import java.util.*;
+
+public class Table implements Games{
 	private Dealer dealer;
 	private Random r = new Random();
 	private boolean containsDealer, seatTaken, tableFull, startRound, endRound;
@@ -11,8 +14,8 @@ public Table implements Games{
 	}
 	public Table(Player player) {
 		this();
-		private double temp = r.nextDouble();
-		private int spot = (int)(temp * 100) % 5; 
+		double temp = r.nextDouble();
+		int spot = (int)(temp * 100) % 5; 
 		switch (spot) {
 			case 0:
 				this.one = new Seat(player, 1);

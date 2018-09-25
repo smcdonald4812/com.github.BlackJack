@@ -1,6 +1,7 @@
+package BlackJack;
 import java.util.*;
 
-public Player implements Beings, Players{
+public class Player implements Beings, Players{
 	private boolean doubled, insured, turn, busted;
 	private int bet, bankRoll, total;
 	private String name;
@@ -63,16 +64,16 @@ public Player implements Beings, Players{
 		this.name = name;
 	}
 	public String getName() {
-	    this.name;
+	    return this.name;
 	}
 	public String getBeingId() {
 		return this.id;
 	}
-	public void setTotalPoints(int points) {
-		this.points = points;
+	public void setTotalPoints(int total) {
+		this.total = total;
 	}
 	public int getTotalPoints() {
-		return points;
+		return total;
 	}
 	public void setBet(int bet) {
 		this.bet = bet;

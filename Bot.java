@@ -1,9 +1,10 @@
+package BlackJack;
 import java.util.*;
 
-public Bot extends Player implements Bots{
+public class Bot extends Player implements Bots{
 	private boolean doubled, insured, turn, busted;
 	private int bet, bankRoll, total, stopValue;
-	private static count = 0;
+	private static int count = 0;
 	private String name;
 	private final String id;
 	
@@ -15,14 +16,14 @@ public Bot extends Player implements Bots{
 	}
 	
 	public boolean isOverStopValue() {
-		if(this.getTotal >= this.stopValue) return true;
-		retun false;
+		if(this.total >= this.stopValue) return true;
+		return false;
 	} 
 	
 	public void setStopValue(int stopValue) {
 		this.stopValue = stopValue;
 	}
 	public int getStopValue() {
-		return stopValue();
+		return stopValue;
 	}
 }

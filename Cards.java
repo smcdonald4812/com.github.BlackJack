@@ -1,11 +1,11 @@
+package BlackJack;
+
 interface Cards {
-	void SetValue();
+	void SetValue(int value);
 	int GetValue();
-	void setDiplayValue();
 	String getDisplayValue();
-	void setSuit();
 	String getSuit();
 	String getId();
-	void isAce();
-	void isFaceCard();
+	boolean isAce();
+	boolean isFaceCard();
 }

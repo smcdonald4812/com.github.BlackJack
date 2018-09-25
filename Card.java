@@ -1,28 +1,31 @@
+package BlackJack;
 import java.util.*;
 
-public Card implements Cards {
+public class Card implements Cards {
 	private boolean ace, faceCard;
 	private int value;
-	private final id;
-	public final enum SUIT {Spades, Dimonds, Clubs, Hearts};
-	public final enum DISPLAY_VALUE {2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A};
+	private final String id;
+	private String suit, displayValue;
+	public enum SUIT {Spades, Dimonds, Clubs, Hearts};
+	public enum DISPLAY_VALUE {TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, J, Q, K, A};
 	
-	public Card(int value, enum SUIT, enum DISPLAY_NAME) {
+	
+	Card(int value, SUIT suit, DISPLAY_VALUE displayValue) {
 		super();
-		this.SUIT = SUIT;
-		this.DISPLAY_VALUE = DISPLAY_VALUE;
-		if(this.DISPLAY_VALUE == A) {
+		this.suit = suit.toString();
+		this.displayValue = displayValue.toString();
+		if(this.displayValue.equals("A")) {
 			this.ace = true;
 		} else {
 			this.ace = false;
 		}
-		if((this.DISPLAY_NAME == J) | (this.DISPLAY_NAME == Q) | (this.DISPLAY_NAME == K)) {
+		if((this.displayValue.equals("J")) | (this.displayValue.equals("Q")) | (this.displayValue.equals("K"))) {
 			this.faceCard = true;
 		} else {
 			this.faceCard = false;
 		}
 		this.value = value;
-		this.id = UUID.randomUUID().toString();
+		id = UUID.randomUUID().toString();
 	}
 	
 	public void SetValue(int value) {
@@ -31,26 +34,20 @@ public Card implements Cards {
 	public int GetValue() {
 		return value;
 	}
-	public void setDiplayValue(enum DISPLAY_VALUE) {
-		this.DISPLAY_VALUE = DISPLAY_VALUE;
-	}
 	public String getDisplayValue() {
-		return DISPLAY_VALUE.toString();
-	}
-	public void setSuit(enum SUIT) {
-		this.SUIT = SUIT;
+		return displayValue;
 	}
 	public String getSuit() {
-		return SUIT.toString();
+		return suit;
 	}
 	public String getId() {
 		return id;
 	}
-	public void isAce() {
+	public boolean isAce() {
 		if(this.ace == true) return true;
 		return false;
 	}
-	public void isFaceCard() {
+	public boolean isFaceCard() {
 		if(this.faceCard == true) return true;
 		return false;
 	}

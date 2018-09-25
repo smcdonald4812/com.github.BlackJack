@@ -1,12 +1,14 @@
+package BlackJack;
+
 interface Players {
-	void setBet();
+	void setBet(int bet);
 	int getBet();
-	void setInsured();
+	void setInsured(boolean insured);
 	boolean isInsured();
-	void setDouble();
+	void setDouble(boolean doubled);
 	boolean isDouble();
-	boolean isAbleToDouble();
-	boolean isMaxBet();
-	void setBankRoll();
+	boolean isAbleToDouble(int bet, int bankRoll);
+	boolean isMaxBet(int bet, int bankRoll);
+	void setBankRoll(int bankRoll);
 	int getBankRoll();
 }

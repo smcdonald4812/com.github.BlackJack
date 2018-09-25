@@ -1,13 +1,14 @@
+package BlackJack;
+
 interface Beings {
 	boolean isDealer();
-	void setName();
+	void setName(String name);
 	String getName();
-	void setBeingId();
 	String getBeingId();
-	void setBusted();
+	void setBusted(boolean busted);
 	boolean isBusted();
-	void setTurn();
+	void setTurn(boolean turn);
 	boolean isTurn();
-	void setTotalPoints();
+	void setTotalPoints(int total);
 	int getTotalPoints();
 }

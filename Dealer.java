@@ -1,6 +1,7 @@
+package BlackJack;
 import java.util.*;
 
-public Dealer implements Beings, Dealers, Bots {
+public class Dealer implements Beings, Dealers, Bots {
 	private boolean turn, busted, startBlackJack, cardShowing;
 	private int total, stopValue;
 	private String name;
@@ -20,8 +21,8 @@ public Dealer implements Beings, Dealers, Bots {
 		return true;
 	}
 	public boolean isOverStopValue() {
-		if(this.getTotal >= this.stopValue) return true;
-		retun false;
+		if(this.total >= this.stopValue) return true;
+		return false;
 	}
 	public void setStartBlackJack(boolean startBlackJack) {
 		this.startBlackJack = startBlackJack;
@@ -41,18 +42,20 @@ public Dealer implements Beings, Dealers, Bots {
 	public boolean isTurn() {
 		return turn;
 	}
-	
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getName() {
-	    this.name;
+	    return this.name;
 	}
 	public String getBeingId() {
 		return this.id;
 	}
-	public void setTotalPoints(int points) {
-		this.points = points;
+	public void setTotalPoints(int total) {
+		this.total = total;
 	}
 	public int getTotalPoints() {
-		return points;
+		return total;
 	}
 	public void setStopValue(int stopValue) {
 		this.stopValue = stopValue;
@@ -60,10 +63,10 @@ public Dealer implements Beings, Dealers, Bots {
 	public int getStopValue() {
 		return this.stopValue;
 	}
-	public void setCardShowing(cardShowing) {
+	public void setCardShowing(boolean cardShowing) {
 		this.cardShowing = cardShowing;
 	}
-	boolean isCardShowing() {
+	public boolean isCardShowing() {
 		return this.cardShowing;
 	}
 }

@@ -1,41 +1,40 @@
 /*
 *	Created by Steven McDonald
-*	Version 0.0.2
+*	Version 0.0.1
 */
-
+package BlackJack;
 import java.util.*;
 
 public class BlackJack {
-	Scanner s = new Scanner(System.in);
-	
 	public static void main(String... args) {
-		private boolean flag;
-		private String answer, name;
-		private Player player;
-		private Deck deck = new Deck();
+		Scanner s = new Scanner(System.in);
+		boolean flag = false;
+		String answer = "", name = "";
+		Player player;
+		Deck deck = new Deck();
 		
 		//Asking if the player wants to play as well as what their display name will be.
 		System.out.println("Would you like to play? Select Y/N.");
-		answer = answerLoop(answer);
+		answer = answerLoop(answer, s);
 		quit(answer);
 		answer = "";
 		System.out.println("Would you like to enter your name? Select Y/N.");
-		answer = answerLoop(answer);
-		name = named(answer);
+		answer = answerLoop(answer, s);
+		name = named(answer, s);
 		if(name.isEmpty()) player = new Player();
 		else player = new Player(name);
 		
-		private Table table = new Table();
+		Table table = new Table();
 		
-		while(flag) {
+		//while(flag) {
 			/*
-			* Need to add main game logic here...
 			* The list will be randomized every time it needs to be reshuffled with Collections.shuffle(List<Card>); 
 			*/
-		}
+		//}
+		s.close();
 	}
 	
-	private String answerLoop(String answer) {
+	private static String answerLoop(String answer, Scanner s) {
 		boolean flag = false;
 		while(flag) {
 			answer = s.nextLine();
@@ -45,15 +44,15 @@ public class BlackJack {
 		return answer;
 	}
 	
-	private void quit(String answer) {
+	private static void quit(String answer) {
 		if(answer.equals("N")) {
 			System.out.println("Have a nice day!!");
 			System.exit(0);
 		}
 	}
 	
-	private String named(String answer) {
-		if(anser.equals("N")) return "";
+	private static String named(String answer, Scanner s) {
+		if(answer.equals("N")) return "";
 		else {
 			String temp = "";
 			answer = "";
@@ -62,9 +61,10 @@ public class BlackJack {
 				System.out.println("Please enter your name");
 				temp = s.nextLine();
 				System.out.println("Is " + temp + " correct? Select Y/N.");
-				answer = answerLoop(answer);
+				answer = answerLoop(answer, s);
 				if(answer.equalsIgnoreCase("Y")) return temp;
 			}
 		}
+		return "";
 	}
 }

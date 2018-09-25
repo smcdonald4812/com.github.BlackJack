@@ -1,5 +1,7 @@
+package BlackJack;
+
 interface Bots {
-	void setStopValue();
+	void setStopValue(int stopValue);
 	int getStopValue();
 	boolean isOverStopValue();
 }
