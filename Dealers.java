@@ -1,6 +1,6 @@
-package BlackJack;
+package Interfaces;
 
-import java.util.*;
+import BlackJack.*;
 
 interface Dealers {
 	void setStartBlackJack(boolean startBlackJack);

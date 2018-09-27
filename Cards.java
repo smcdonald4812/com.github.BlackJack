@@ -1,6 +1,6 @@
-package BlackJack;
+package Interfaces;
 
-import java.util.*;
+import BlackJack.*;
 
 interface Cards {
 	void SetValue(int value);

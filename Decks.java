@@ -1,4 +1,6 @@
-package BlackJack;
+package Interfaces;
+
+import BlackJack.*;
 
 interface Decks {
 	void reshuffleDeck();

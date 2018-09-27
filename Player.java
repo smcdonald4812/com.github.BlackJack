@@ -1,5 +1,7 @@
 package BlackJack;
+
 import java.util.*;
+import Interfaces.*;
 
 public class Player implements Beings, Players{
 	private boolean doubled, insured, turn, busted, split;

@@ -1,5 +1,7 @@
 package BlackJack;
+
 import java.util.*;
+import Interfaces.*;
 
 public class Deck implements Decks {
 	//size of 8 52 card decks

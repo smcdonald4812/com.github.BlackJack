@@ -1,6 +1,7 @@
 package BlackJack;
 
 import java.util.*;
+import Interfaces.*;
 
 public class Game implements Games {
 	private boolean startRound, endRound;

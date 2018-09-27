@@ -1,5 +1,7 @@
 package BlackJack;
+
 import java.util.*;
+import Interfaces.*;
 
 public class Card implements Cards {
 	private boolean ace, faceCard;

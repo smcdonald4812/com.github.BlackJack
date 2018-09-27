@@ -1,5 +1,7 @@
 package BlackJack;
+
 import java.util.*;
+import Interfaces.*;
 
 public class Dealer implements Beings, Dealers, Bots {
 	private boolean turn, busted, startBlackJack, cardShowing;

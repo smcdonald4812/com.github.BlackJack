@@ -2,6 +2,7 @@ package BlackJack;
 
 import java.util.*;
 import java.util.stream.*;
+import Interfaces.*;
 
 public class Hand implements Hands {
 	private List<Card> hand;

@@ -1,5 +1,7 @@
 package BlackJack;
+
 import java.util.*;
+import Interfaces.*;
 
 public class Bot extends Player implements Bots{
 	private boolean doubled, insured, turn, busted;

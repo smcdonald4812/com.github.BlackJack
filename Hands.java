@@ -1,6 +1,6 @@
-package BlackJack;
+package Interfaces;
 
-import java.util.*;
+import BlackJack.*;
 
 public interface Hands {
 	public void addToHand(Card c);
