@@ -2,6 +2,7 @@ package BlackJack;
 
 interface Players {
 	void setBet(int bet);
+	void setBetDouble();
 	int getBet();
 	void setInsured(boolean insured);
 	boolean isInsured();
@@ -11,4 +12,7 @@ interface Players {
 	boolean isMaxBet(int bet, int bankRoll);
 	void setBankRoll(int bankRoll);
 	int getBankRoll();
+	void setSpot(int spot);
+	Hand getHand();
+	Hand getHand(int hand);
 }

@@ -26,6 +26,12 @@ public class Deck implements Decks {
 		}
 	}
 	
+	public ArrayList<Card> getDeckList() {
+		return this.fullDeck;
+	}
+	public int size() {
+		return this.fullDeck.size();
+	}
 	public String getDeckId(String id) {
 		return id;
 	}

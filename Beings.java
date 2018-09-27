@@ -1,5 +1,7 @@
 package BlackJack;
 
+import java.util.*;
+
 interface Beings {
 	boolean isDealer();
 	void setName(String name);
@@ -11,4 +13,12 @@ interface Beings {
 	boolean isTurn();
 	void setTotalPoints(int total);
 	int getTotalPoints();
+	void addHand(Hand hand);
+	void removeHand(int i);
+	Hand getHand();
+	void setClearHands();
+	Card getCard(int card);
+	int getSpot();
+	void setBankRoll(int i);
+	int getBet();
 }

@@ -1,8 +1,10 @@
 package BlackJack;
 
+import java.util.*;
+
 interface Cards {
 	void SetValue(int value);
-	int GetValue();
+	int getValue();
 	String getDisplayValue();
 	String getSuit();
 	String getId();

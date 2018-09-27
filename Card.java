@@ -25,23 +25,23 @@ public class Card implements Cards {
 			this.faceCard = false;
 		}
 		this.value = value;
-		id = UUID.randomUUID().toString();
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	public void SetValue(int value) {
 		this.value = value;
 	}
-	public int GetValue() {
-		return value;
+	public int getValue() {
+		return this.value;
 	}
 	public String getDisplayValue() {
-		return displayValue;
+		return this.displayValue;
 	}
 	public String getSuit() {
-		return suit;
+		return this.suit;
 	}
 	public String getId() {
-		return id;
+		return this.id;
 	}
 	public boolean isAce() {
 		if(this.ace == true) return true;

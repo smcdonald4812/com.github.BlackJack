@@ -2,9 +2,11 @@ package BlackJack;
 import java.util.*;
 
 public class Player implements Beings, Players{
-	private boolean doubled, insured, turn, busted;
-	private int bet, bankRoll, total;
+	private boolean doubled, insured, turn, busted, split;
+	private int bet, bankRoll, total, playerSpot;
 	private String name;
+	private List<Hand> hands;
+	private Hand hand;
 	private final String id;
 	
 	public Player() {
@@ -17,13 +19,22 @@ public class Player implements Beings, Players{
 		this.turn = false;
 		this.busted = false;
 		this.id = UUID.randomUUID().toString();
+		this.hands = new ArrayList<Hand>();
+		this.hand = new Hand();
+		this.hands.add(hand);
+		this.split = false;
 	}
 	
 	public Player(String name) {
 		this();
 		this.name = name;
 	}
-	
+	public boolean isSplit() {
+		return this.split;
+	}
+	public void setSplit(boolean split) {
+		this.split = split;
+	}
 	public boolean isDealer() {
 		return false;
 	}
@@ -78,6 +89,9 @@ public class Player implements Beings, Players{
 	public void setBet(int bet) {
 		this.bet = bet;
 	}
+	public void setBetDouble() {
+		this.bet += bet;
+	}
 	public int getBet() {
 		return bet;
 	}
@@ -86,5 +100,35 @@ public class Player implements Beings, Players{
 	}
 	public int getBankRoll() {
 		return bankRoll;
+	}
+	public void addHand(Hand hand) {
+		this.hands.add(hand);
+	}
+	//removes specified hand from hands list.
+	public void removeHand(int i) {
+		this.hands.remove(i);
+	}
+	//gets hand from list.
+	public Hand getHand() {
+		return this.hand;
+	}
+	public Hand getHand(int hand) {
+		return this.hands.get(hand);
+	}
+	public List<Hand> getHands() {
+		return this.hands;
+	}
+	public void setClearHands() {
+		this.hands.clear();
+	}
+	//gets a card from the hand.
+	public Card getCard(int card) {
+		return hand.getCard(card);
+	}
+	public int getSpot() {
+		return this.playerSpot;
+	}
+	public void setSpot(int spot) {
+		this.playerSpot = spot;
 	}
 }

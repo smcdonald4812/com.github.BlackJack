@@ -1,5 +1,7 @@
 package BlackJack;
 
+import java.util.*;
+
 interface Dealers {
 	void setStartBlackJack(boolean startBlackJack);
 	boolean isStartBlackJack();

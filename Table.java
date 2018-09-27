@@ -1,57 +1,101 @@
 package BlackJack;
 import java.util.*;
 
-public class Table implements Games{
+public class Table implements Tables{
 	private Dealer dealer;
 	private Random r = new Random();
 	private boolean containsDealer, seatTaken, tableFull, startRound, endRound;
 	private Seat one, two, three, four, five, six;
+	private List<Seat> seats = new ArrayList<Seat>();
 	private final String id;
+	private int playerSpot;
+	private Player player;
+	private Bot b1, b2, b3, b4;
 	
 	public Table() {
 		this.id = UUID.randomUUID().toString();
-		this.six = new Seat(new Dealer(), 6);
+		this.dealer = new Dealer();
+		this.six = new Seat(dealer, 6);
 	}
 	public Table(Player player) {
 		this();
+		this.player = player;
 		double temp = r.nextDouble();
 		int spot = (int)(temp * 100) % 5; 
 		switch (spot) {
 			case 0:
 				this.one = new Seat(player, 1);
-				this.two = new Seat(new Bot(), 2);
-				this.three = new Seat(new Bot(), 3);
-				this.four = new Seat(new Bot(), 4);
-				this.five = new Seat(new Bot(), 5);
+				player.setSpot(1);
+				this.b1 = new Bot(2);
+				this.b2 = new Bot(3);
+				this.b3 = new Bot(4);
+				this.b4 = new Bot(5);
+				this.two = new Seat(b1, 2);
+				this.three = new Seat(b2, 3);
+				this.four = new Seat(b3, 4);
+				this.five = new Seat(b4, 5);
+				break;
 			case 1:
-				this.one = new Seat(new Bot(), 1);
+				this.b1 = new Bot(1);
+				this.b2 = new Bot(3);
+				this.b3 = new Bot(4);
+				this.b4 = new Bot(5);
+				this.one = new Seat(b1, 1);
 				this.two = new Seat(player, 2);
-				this.three = new Seat(new Bot(), 3);
-				this.four = new Seat(new Bot(), 4);
-				this.five = new Seat(new Bot(), 5);
+				player.setSpot(2);
+				this.three = new Seat(b2, 3);
+				this.four = new Seat(b3, 4);
+				this.five = new Seat(b4, 5);
+				break;
 			case 2:
-				this.one = new Seat(new Bot(), 1);
-				this.two = new Seat(new Bot(), 2);
+				this.b1 = new Bot(2);
+				this.b2 = new Bot(1);
+				this.b3 = new Bot(4);
+				this.b4 = new Bot(5);
+				this.one = new Seat(b2, 1);
+				this.two = new Seat(b1, 2);
 				this.three = new Seat(player, 3);
-				this.four = new Seat(new Bot(), 4);
-				this.five = new Seat(new Bot(), 5);
+				player.setSpot(3);
+				this.four = new Seat(b3, 4);
+				this.five = new Seat(b4, 5);
+				break;
 			case 3:
-				this.one = new Seat(new Bot(), 1);
-				this.two = new Seat(new Bot(), 2);
-				this.three = new Seat(new Bot(), 3);
+				this.b1 = new Bot(2);
+				this.b2 = new Bot(1);
+				this.b3 = new Bot(3);
+				this.b4 = new Bot(5);
+				this.one = new Seat(b2, 1);
+				this.two = new Seat(b1, 2);
+				this.three = new Seat(b3, 3);
 				this.four = new Seat(player, 4);
-				this.five = new Seat(new Bot(), 5);
+				player.setSpot(4);
+				this.five = new Seat(b4, 5);
+				break;
 			case 4:
-				this.one = new Seat(new Bot(), 1);
-				this.two = new Seat(new Bot(), 2);
-				this.three = new Seat(new Bot(), 3);
-				this.four = new Seat(new Bot(), 4);
+				this.b1 = new Bot(2);
+				this.b2 = new Bot(1);
+				this.b3 = new Bot(3);
+				this.b4 = new Bot(4);
+				this.one = new Seat(b2, 1);
+				this.two = new Seat(b1, 2);
+				this.three = new Seat(b3, 3);
+				this.four = new Seat(b4, 4);
 				this.five = new Seat(player, 5);
+				player.setSpot(5);
 		}
+		this.seats.add(one);
+		this.seats.add(two);
+		this.seats.add(three);
+		this.seats.add(four);
+		this.seats.add(five);
+		this.seats.add(six);
 	}
 	
-	public void setDealer(Dealer dealer) {
+	public void setDealer() {
 		this.dealer = new Dealer();
+	}
+	public Dealer getDealer() {
+		return this.dealer;
 	}
 	public void setContainingDealer(boolean containsDealer) {
 		this.containsDealer = containsDealer;
@@ -109,5 +153,8 @@ public class Table implements Games{
 	}
 	public void setSeatFive() {
 		this.five = null;
+	}
+	public List<Seat> getList() {
+		return this.seats;
 	}
 }
