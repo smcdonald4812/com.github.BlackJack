@@ -1,7 +1,3 @@
-package Interfaces;
-
-import BlackJack.*;
-
 interface Dealers {
 	void setStartBlackJack(boolean startBlackJack);
 	boolean isStartBlackJack();

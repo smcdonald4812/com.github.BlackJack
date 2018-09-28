@@ -1,7 +1,3 @@
-package Interfaces;
-
-import BlackJack.*;
-
 interface Players {
 	void setBet(int bet);
 	void setBetDouble();

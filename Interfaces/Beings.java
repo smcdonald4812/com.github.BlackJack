@@ -1,7 +1,3 @@
-package Interfaces;
-
-import BlackJack.*;
-
 interface Beings {
 	boolean isDealer();
 	void setName(String name);
@@ -19,6 +15,7 @@ interface Beings {
 	void setClearHands();
 	Card getCard(int card);
 	int getSpot();
+	int getBankRoll();
 	void setBankRoll(int i);
 	int getBet();
 }

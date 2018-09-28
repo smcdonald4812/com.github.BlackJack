@@ -1,7 +1,3 @@
-package Interfaces;
-
-import BlackJack.*;
-
 public interface Hands {
 	public void addToHand(Card c);
 	public void clearHand();

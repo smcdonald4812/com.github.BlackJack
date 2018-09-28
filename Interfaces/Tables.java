@@ -1,7 +1,3 @@
-package Interfaces;
-
-import BlackJack.*;
-
 interface Tables {
 	void setDealer();
 	Dealer getDealer();
