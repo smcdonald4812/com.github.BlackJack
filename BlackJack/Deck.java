@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Deck implements Decks {
 	//size of 8 52 card decks
@@ -15,12 +12,12 @@ public class Deck implements Decks {
 		for(int i = 0; i < 8; i++) {
 			for(Card.SUIT suit : Card.SUIT.values()) {
 				for(Card.DISPLAY_VALUE dv : Card.DISPLAY_VALUE.values()) {
-					if(dv.ordinal() < 10) {
-						value = dv.ordinal();
-					} else if(dv.ordinal() > 9 & dv.ordinal() < 12) {
-						value = 10;
-					} else {
+					if(dv.ordinal() < 9) {
+						value = dv.ordinal() + 2;
+					} else if(dv.ordinal() == 12) {
 						value = 11;
+					} else {
+						value = 10;
 					}
 					fullDeck.add(new Card(value, suit, dv));
 				}

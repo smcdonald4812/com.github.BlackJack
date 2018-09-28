@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Dealer implements Beings, Dealers, Bots {
 	private boolean turn, busted, startBlackJack, cardShowing;
@@ -102,6 +99,9 @@ public class Dealer implements Beings, Dealers, Bots {
 	}
 	public int getSpot() {
 		return this.dealerSpot;
+	}
+	public int getBankRoll() {
+		return this.bankRoll;
 	}
 	public void setBankRoll(int i) {
 		this.bankRoll = 100000000;

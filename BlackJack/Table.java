@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Table implements Tables{
 	private Dealer dealer;
@@ -125,6 +122,9 @@ public class Table implements Tables{
 	}
 	public boolean isEndRound() {
 		return endRound;
+	}
+	public Seat getSeat(int i) {
+		return this.seats.get(i);
 	}
 	public void setSeatOne(Seat one) {
 		this.one = one;

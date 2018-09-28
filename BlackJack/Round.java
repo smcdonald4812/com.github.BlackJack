@@ -1,8 +1,5 @@
-package BlackJack;
-
 import java.util.*;
 import java.util.stream.*;
-import Interfaces.*;
 
 public class Round implements Rounds{
 	private int total;
@@ -30,13 +27,13 @@ public class Round implements Rounds{
 	public void getChoice(Hand hand) {
 		boolean flag = true;
 		playerHand(hand);
-		System.out.println("What would you like to do. Press [H] to get help.");
 		while(flag) {
+			System.out.println("Hand total is " + hand.getHandTotal());
+			System.out.println("What would you like to do. Press [H] to get help.");
 			String pressed = s.nextLine();
 			switch(pressed.toUpperCase()) {
 				case "W":
 					hit(hand);
-					playerHand(hand);
 					break;
 				case "S":
 					flag = false;
@@ -44,7 +41,6 @@ public class Round implements Rounds{
 				case "D":
 					if(hand.getHandList().size() < 3) {
 						doubles(player, "double");
-						playerHand(hand);
 						flag = false;
 					} else {
 						System.out.println("Hand can only be doubled on first two cards.");
@@ -75,6 +71,9 @@ public class Round implements Rounds{
 					player.setBusted(true);
 					player.setBankRoll(-(player.getBet()));
 					flag = false;
+					playerHand(hand);
+					System.out.println("Hand total is " + hand.getHandTotal());
+					System.out.println("You've busted!!!");
 				}
 			} else {
 				if(player.getHands().size() > 1) {
@@ -142,7 +141,7 @@ public class Round implements Rounds{
 	}
 	public void help() {
 		System.out.println(
-		"Press H for help./n Press W to hit./n Press D to double./n Press A to split./n Press Q to quit.");
+		"Press H for help.\nPress W to hit.\nPress S to stand.\nPress D to double.\nPress A to split.\nPress Q to quit.");
 	}
 	private void quit(String answer) {
 		if(answer.equalsIgnoreCase("Y")) {

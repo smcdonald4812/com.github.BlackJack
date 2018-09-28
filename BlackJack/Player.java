@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Player implements Beings, Players{
 	private boolean doubled, insured, turn, busted, split;
@@ -101,7 +98,7 @@ public class Player implements Beings, Players{
 		this.bankRoll = bankRoll;
 	}
 	public int getBankRoll() {
-		return bankRoll;
+		return this.bankRoll;
 	}
 	public void addHand(Hand hand) {
 		this.hands.add(hand);

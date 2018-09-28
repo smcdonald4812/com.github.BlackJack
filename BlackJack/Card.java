@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Card implements Cards {
 	private boolean ace, faceCard;
@@ -30,9 +27,6 @@ public class Card implements Cards {
 		this.id = UUID.randomUUID().toString();
 	}
 	
-	public void SetValue(int value) {
-		this.value = value;
-	}
 	public int getValue() {
 		return this.value;
 	}

@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Game implements Games {
 	private boolean startRound, endRound;
@@ -43,6 +40,7 @@ public class Game implements Games {
 	}
 	public void newGameStart() {
 		System.out.println(player.getName() + " is sitting in seat " + player.getSpot());
+		this.shuffle();
         for(Seat seat : seatList) {
 			seat.getBeing().addHand(new Hand());
 		}
@@ -62,33 +60,37 @@ public class Game implements Games {
 		System.out.println("Dealer's hand is: [Hidden] [" + table.getDealer().getHand().getHandList().get(1).getDisplayValue() +
 		" of " + table.getDealer().getHand().getHandList().get(1).getSuit() + "]");
 	}
-	public void checkForInsurance() {
-		Card c = table.getDealer().getHand().getCard(1);
-		if((c.isAce() | c.isFaceCard()) && (player.getBankRoll() > (int)(player.getBet() * 1.5))) {
+	
+	public boolean checkForInsurance() {
+		Hand h = table.getDealer().getHand();
+		if((h.getCard(1).getValue() > 9) & (player.getBankRoll() > (int)(player.getBet() * 1.5))) {
 			System.out.println("Would you like to buy insurance? This will automatically be purchased at half of your current bet. Enter Y/N");
 			answer = answerLoop(answer, s);
 			if(answer.equalsIgnoreCase("Y")) {
 				player.setInsured(true);
-				
 			}
-			return;
 		}
 		if(table.getDealer().getTotalPoints() == 21) {
+			System.out.println("The dealer has a blackjack.");
 			if(!(player.isInsured())) {
 				this.neg -= player.getBet();
 				player.setBankRoll(neg);
 				this.neg = 0;
 			}
+			return false;
 		}
+		return true;
 	}
 	public void rounds(int i) {
 		if(i == player.getSpot()) {
 			Round round = new Round(player, deck, s);
 			round.getChoice(player.getHand(0));
 		} else if (i == 6) {
-			//dealerRound logic goes here.
+			DealerRound round = new DealerRound(table.getDealer(), deck);
+			round.getChoice(table.getDealer().getHand(0));
 		} else {
-			//botRound logic goes here.
+			BotRound round = new BotRound(seatList.get(i-1).getBot(), deck);
+			round.getChoice(seatList.get(i-1).getBot().getHand(0));
 		}
 	}
 	public void checkForShuffle() {
@@ -129,6 +131,10 @@ public class Game implements Games {
 				System.out.println(bet + " is more than you have! Your remaining credits are: " + player.getBankRoll());
 				fakeFlag = true;
 			}
+			if(bet < 1) {
+				System.out.println("Bets can't be less than 1 credit!!!");
+				fakeFlag = true;
+			}
 		}
 		return bet;
 	}
@@ -141,8 +147,12 @@ public class Game implements Games {
 	}
 	public void endRoundCheck() {
 		for(Seat seat : seatList) {
-			if(!(seat.getBeing().isBusted()) && (seat.getBeing().getTotalPoints() > table.getDealer().getTotalPoints())) 
-				seat.getBeing().setBankRoll(seat.getBeing().getBet());
+			if(table.getDealer().isBusted() & !(seat.getBeing().isBusted())) {
+				seat.getBeing().setBankRoll(seat.getBeing().getBet() + seat.getBeing().getBankRoll());
+			}
+			if(!(seat.getBeing().isBusted()) && (seat.getBeing().getTotalPoints() > table.getDealer().getTotalPoints())) {
+				seat.getBeing().setBankRoll(seat.getBeing().getBet() + seat.getBeing().getBankRoll());
+			}
 		}
 		for(Seat seat : seatList) {
 			seat.getBeing().setClearHands();

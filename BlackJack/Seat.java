@@ -1,7 +1,4 @@
-package BlackJack;
-
 import java.util.*;
-import Interfaces.*;
 
 public class Seat {
 	private String b;
@@ -9,6 +6,9 @@ public class Seat {
 	private final String id;
 	private int seatNumber;
 	private Beings being;
+	private Player player;
+	private Bot bot;
+	private Dealer dealer;
 	
 	public Seat() {
 		this.id = UUID.randomUUID().toString();
@@ -19,19 +19,33 @@ public class Seat {
 		this.containsPlayer = false;
 		this.containsDealer = false;
 	}
-	public Seat(Beings being, int seatNumber) {
+	public Seat(Player player, int seatNumber) {
 		this();
-		this.b = being.getName();
-		this.being = being;
+		this.b = player.getName();
+		this.player = player;
+		this.being = player;
 		this.seatTaken = true;
 		this.seatNumber = seatNumber;
-		//not sure if this will work, but trying to set bools based on type of instance
-		if(being instanceof Bot) this.containsBot = true;
-		else this.containsBot = false;
-		if(being instanceof Dealer) this.containsDealer = true;
-		else this.containsDealer = false;
-		if(being instanceof Player) this.containsPlayer = true;
-		else this.containsPlayer = false;
+		this.containsPlayer = true;
+	}
+	public Seat(Dealer dealer, int seatNumber) {
+		this();
+		this.b = dealer.getName();
+		this.dealer = dealer;
+		this.being = dealer;
+		this.seatTaken = true;
+		this.seatNumber = seatNumber;
+		this.containsDealer = true;
+	}
+	public Seat(Bot bot, int seatNumber) {
+		this();
+		this.b = bot.getName();
+		this.bot = bot;
+		this.being = bot;
+		this.seatTaken = true;
+		this.seatNumber = seatNumber;
+		this.containsBot = true;
+		
 	}
 	
 	public boolean isBot() {
@@ -56,6 +70,12 @@ public class Seat {
 	}
 	public Beings getBeing() {
 		return this.being;
+	}
+	public Player getPlayer() {
+		return this.player;
+	}
+	public Bot getBot() {
+		return this.bot;
 	}
 	public int getSeatNumber() {
 		return seatNumber;
