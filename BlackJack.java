@@ -1,7 +1,6 @@
 /*
 *	Created by Steven McDonald
-*	Version 0.0.2
-*   need to add logic to skip turns if dealer has blackjack. and pause when blackjack is printed.
+*	Version 0.1.0
 */
 
 package com.github.BlackJack;
